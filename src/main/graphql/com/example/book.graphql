@@ -1,0 +1,10 @@
+query BookQuery($id: ID!) {
+    Book (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            lastName
+        }
+    }
+}
