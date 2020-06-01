@@ -1,10 +1,18 @@
-query BookQuery($id: ID!) {
-    Book (id: $id) {
-        id
-        name
-        pageCount
-        author {
-            lastName
-        }
+query BookQuery($id: ID!)  {
+    bookById(id: $id) {
+        ...BookFragment
     }
+}
+
+fragment BookFragment on Book {
+    name
+    pageCount
+    author {
+        ...AuthorFragment
+    }
+}
+
+fragment AuthorFragment on Author {
+    firstName
+    lastName
 }
